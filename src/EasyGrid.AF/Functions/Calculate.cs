@@ -5,7 +5,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace EasyGridAF
+namespace EasyGrid.AF.Functions
 {
     public static class Calculate
     {
