@@ -21,6 +21,11 @@ namespace EasyGrid.Core.Services.Implementation
                 return new GeoPoint[0, 0];
             }
 
+            return CalculateGrid(startPoint, squareSize, numberOfPointsByLon, numberOfPointsByLat);
+        }
+
+        private static GeoPoint[,] CalculateGrid(GeoPoint startPoint, int squareSize, int numberOfPointsByLon, int numberOfPointsByLat)
+        {
             var grid = new GeoPoint[numberOfPointsByLon, numberOfPointsByLat];
 
             for (var j = 0; j < numberOfPointsByLat; j++)

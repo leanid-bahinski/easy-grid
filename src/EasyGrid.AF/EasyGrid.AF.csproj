@@ -8,6 +8,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyGrid.Core\EasyGrid.Core.csproj" />
+    <ProjectReference Include="..\EasyGrid.Utils\EasyGrid.Utils.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
