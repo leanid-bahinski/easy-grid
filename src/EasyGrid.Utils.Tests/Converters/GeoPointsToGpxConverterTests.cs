@@ -3,10 +3,10 @@ using EasyGrid.Utils.Converters;
 
 namespace EasyGrid.Utils.Tests.Converters
 {
-    public class GeoPointArrayToXmlConverterTests
+    public class GeoPointsToGpxConverterTests
     {
         [Test]
-        public void ConvertToXml_ShouldReturnCorrectXml()
+        public void ConvertToGpx_ShouldReturnCorrectGpx()
         {
             // Arrange
             var grid = new GeoPoint[,]
@@ -18,7 +18,7 @@ namespace EasyGrid.Utils.Tests.Converters
             var expected = "";
 
             // Act
-            var actual = GeoPointArrayToXmlConverter.ConvertToXml(grid);
+            var actual = GeoPointsToGpxConverter.ConvertToGpx(grid);
 
             // Assert
             Assert.That(actual, Is.EqualTo(expected));

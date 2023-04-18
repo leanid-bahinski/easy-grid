@@ -33,7 +33,8 @@ namespace EasyGrid.AF.Functions
 
             log.LogInformation("CreateGrid function prepares results.");
 
-            var result = GeoPointArrayToXmlConverter.ConvertToXml(grid);
+            var gpx = GeoPointsToGpxConverter.ConvertToGpx(grid);
+            var result = GpxToStringConverter.ConvertToXml(gpx);
 
             log.LogInformation("CreateGrid function completed successfully.");
 

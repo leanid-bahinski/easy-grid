@@ -10,4 +10,8 @@
     <ProjectReference Include="..\EasyGrid.Common\EasyGrid.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
