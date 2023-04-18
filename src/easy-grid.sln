@@ -5,7 +5,11 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.AF", "EasyGrid.AF\EasyGrid.AF.csproj", "{E1057714-8A64-43D7-BC1A-8A5020B32B62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGrid.Core", "EasyGrid.Core\EasyGrid.Core.csproj", "{E50FAFDD-099C-4CB9-AA7F-571DD2FD9C46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Core", "EasyGrid.Core\EasyGrid.Core.csproj", "{E50FAFDD-099C-4CB9-AA7F-571DD2FD9C46}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Common", "EasyGrid.Common\EasyGrid.Common.csproj", "{1D54CBC2-DCA2-4DDD-8B00-150D707B1F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGrid.Core.Tests", "EasyGrid.Core.Tests\EasyGrid.Core.Tests.csproj", "{5F79E793-1882-430B-B3BF-CB5334BA93C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{E50FAFDD-099C-4CB9-AA7F-571DD2FD9C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E50FAFDD-099C-4CB9-AA7F-571DD2FD9C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E50FAFDD-099C-4CB9-AA7F-571DD2FD9C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D54CBC2-DCA2-4DDD-8B00-150D707B1F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D54CBC2-DCA2-4DDD-8B00-150D707B1F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D54CBC2-DCA2-4DDD-8B00-150D707B1F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D54CBC2-DCA2-4DDD-8B00-150D707B1F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F79E793-1882-430B-B3BF-CB5334BA93C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F79E793-1882-430B-B3BF-CB5334BA93C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F79E793-1882-430B-B3BF-CB5334BA93C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F79E793-1882-430B-B3BF-CB5334BA93C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
