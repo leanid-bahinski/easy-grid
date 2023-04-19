@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Core", "EasyGrid.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Common", "EasyGrid.Common\EasyGrid.Common.csproj", "{1D54CBC2-DCA2-4DDD-8B00-150D707B1F4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGrid.Core.Tests", "EasyGrid.Core.Tests\EasyGrid.Core.Tests.csproj", "{5F79E793-1882-430B-B3BF-CB5334BA93C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Core.Tests", "EasyGrid.Core.Tests\EasyGrid.Core.Tests.csproj", "{5F79E793-1882-430B-B3BF-CB5334BA93C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGrid.Utils", "EasyGrid.Utils\EasyGrid.Utils.csproj", "{B6BB4AF6-F79D-45D7-8C4C-E31A66CE9277}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3513E79B-DAB7-45D4-81D3-34BDCFDA282D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGrid.Utils.Tests", "EasyGrid.Utils.Tests\EasyGrid.Utils.Tests.csproj", "{1993EF0E-0336-4B13-9A89-A35C91440872}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +39,21 @@ Global
 		{5F79E793-1882-430B-B3BF-CB5334BA93C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F79E793-1882-430B-B3BF-CB5334BA93C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F79E793-1882-430B-B3BF-CB5334BA93C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6BB4AF6-F79D-45D7-8C4C-E31A66CE9277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6BB4AF6-F79D-45D7-8C4C-E31A66CE9277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6BB4AF6-F79D-45D7-8C4C-E31A66CE9277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6BB4AF6-F79D-45D7-8C4C-E31A66CE9277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1993EF0E-0336-4B13-9A89-A35C91440872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1993EF0E-0336-4B13-9A89-A35C91440872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1993EF0E-0336-4B13-9A89-A35C91440872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1993EF0E-0336-4B13-9A89-A35C91440872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F79E793-1882-430B-B3BF-CB5334BA93C8} = {3513E79B-DAB7-45D4-81D3-34BDCFDA282D}
+		{1993EF0E-0336-4B13-9A89-A35C91440872} = {3513E79B-DAB7-45D4-81D3-34BDCFDA282D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F71E247-CBC8-46F7-965F-77EE9ABD354D}
