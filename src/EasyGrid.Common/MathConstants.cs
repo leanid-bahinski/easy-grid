@@ -2,7 +2,7 @@
 
 namespace EasyGrid.Common
 {
-    public static class Constants
+    public static class MathConstants
     {
         public const double CircleAngle = 360.0;
         public const double HalfCircleAngle = 180.0;
@@ -14,7 +14,7 @@ namespace EasyGrid.Common
             public const double Lon = 40075000;
         }
 
-        public static Dictionary<Direction, double> RadAngle = new Dictionary<Direction, double>()
+        public static Dictionary<Direction, double> RadAngle = new()
         {
             { Direction.Up, 90.0 * Rad },
             { Direction.Right, 0 },

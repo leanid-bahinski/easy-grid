@@ -11,11 +11,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Common", "EasyGrid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Core.Tests", "EasyGrid.Core.Tests\EasyGrid.Core.Tests.csproj", "{5F79E793-1882-430B-B3BF-CB5334BA93C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGrid.Utils", "EasyGrid.Utils\EasyGrid.Utils.csproj", "{B6BB4AF6-F79D-45D7-8C4C-E31A66CE9277}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Utils", "EasyGrid.Utils\EasyGrid.Utils.csproj", "{B6BB4AF6-F79D-45D7-8C4C-E31A66CE9277}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3513E79B-DAB7-45D4-81D3-34BDCFDA282D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGrid.Utils.Tests", "EasyGrid.Utils.Tests\EasyGrid.Utils.Tests.csproj", "{1993EF0E-0336-4B13-9A89-A35C91440872}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyGrid.Utils.Tests", "EasyGrid.Utils.Tests\EasyGrid.Utils.Tests.csproj", "{1993EF0E-0336-4B13-9A89-A35C91440872}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "simple-client", "simple-client", "{86590315-65BE-4B62-9CB5-EE2A53D7318B}"
+	ProjectSection(SolutionItems) = preProject
+		..\simple-client\index.html = ..\simple-client\index.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

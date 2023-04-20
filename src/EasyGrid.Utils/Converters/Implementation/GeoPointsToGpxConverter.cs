@@ -1,4 +1,5 @@
-﻿using EasyGrid.Common.Models;
+﻿using EasyGrid.Common.Extensions;
+using EasyGrid.Common.Models;
 using EasyGrid.Common.Models.GPX;
 using System.Drawing;
 
@@ -25,8 +26,13 @@ namespace EasyGrid.Utils.Converters.Implementation
             };
         }
 
-        private static GpxBounds CreateBounds(GeoPoint[,] grid)
+        private static GpxBounds? CreateBounds(GeoPoint[,] grid)
         {
+            if (grid.IsEmpty())
+            {
+                return null;
+            }
+
             var gridArray = grid.Cast<GeoPoint>().ToArray();
 
             return new GpxBounds
@@ -38,8 +44,13 @@ namespace EasyGrid.Utils.Converters.Implementation
             };
         }
 
-        private static GpxTrack CreateTrack(GeoPoint[,] grid, IEnumerable<Point> path, string trackName)
+        private static GpxTrack? CreateTrack(GeoPoint[,] grid, IEnumerable<Point> path, string trackName)
         {
+            if (grid.IsEmpty())
+            {
+                return null;
+            }
+
             return new GpxTrack
             {
                 Name = trackName,
@@ -56,14 +67,19 @@ namespace EasyGrid.Utils.Converters.Implementation
             });
         }
 
-        private static GpxPoint[] CreatePoints(GeoPoint[,] grid)
+        private static GpxPoint[]? CreatePoints(GeoPoint[,] grid)
         {
+            if (grid.IsEmpty())
+            {
+                return null;
+            }
+
             return grid.Cast<GeoPoint>()
                        .Select(geo => new GpxPoint { Name = geo.Name, Lat = geo.Lat, Lon = geo.Lon })
                        .ToArray();
         }
 
-        private static Gpx CreateGpx(string creatorName, GpxMetadata metadata, GpxTrack track, GpxPoint[] points)
+        private static Gpx CreateGpx(string creatorName, GpxMetadata metadata, GpxTrack? track, GpxPoint[]? points)
         {
             return new Gpx
             {

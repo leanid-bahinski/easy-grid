@@ -1,3 +1,5 @@
+using EasyGrid.AF.Parameters;
+using EasyGrid.Common;
 using EasyGrid.Core.Services;
 using EasyGrid.Utils.Converters;
 using Microsoft.AspNetCore.Http;
@@ -33,42 +35,35 @@ namespace EasyGrid.AF.Functions
 
         [FunctionName("CreateGrid")]
         public async Task<IActionResult> CreateGrid(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest request,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "create-grid")] CreateGridParameters parameters,
             ILogger log)
         {
             log.LogInformation("CreateGrid function processed a request.");
+            log.LogInformation($"Received request with param: {parameters}.");
 
-            var minLat = double.Parse(request.Query["minLat"]);
-            var minLon = double.Parse(request.Query["minLon"]);
-            var maxLat = double.Parse(request.Query["maxLat"]);
-            var maxLon = double.Parse(request.Query["maxLon"]);
-            var squareSize = int.Parse(request.Query["squareSize"]);
-
-            log.LogInformation($"Received request with parameters: minLat={minLat}, minLon={minLon}, maxLat={maxLat}, maxLon={maxLon}, squareSize={squareSize}.");
-
-            var grid = _calculateGridService.CreateGrid(minLat, minLon, maxLat, maxLon, squareSize);
+            var grid = _calculateGridService.CreateGrid(parameters.MinLat, parameters.MinLon, parameters.MaxLat, parameters.MaxLon, parameters.SquareSize);
             var path = _findMeshTraversalPathService.FindPathForGpx(grid.GetLength(0), grid.GetLength(1));
-            var gridName = $"grid-{squareSize}-{DateTime.Now}";
+            var gridName = $"grid-{parameters.SquareSize} {DateTime.Now}";
             var gpx = _geoPointsToGpxConverter.ConvertToGpx(grid, path, "EasyGrid", gridName);
+            var xml = _gpxToStringConverter.ConvertToXml(gpx);
 
             log.LogInformation("CreateGrid function prepares results.");
 
-            var xml = _gpxToStringConverter.ConvertToXml(gpx);
-            var result = GenerateResult(xml, gridName);
+            var result = GenerateFileResult(xml, gridName, ExtensionNames.Gpx);
 
             log.LogInformation("CreateGrid function completed successfully.");
 
             return result;
         }
 
-        private static FileStreamResult GenerateResult(string content, string name)
+        private static ActionResult GenerateFileResult(string content, string name, string type)
         {
             var byteArray = Encoding.UTF8.GetBytes(content);
             var stream = new MemoryStream(byteArray);
 
             return new FileStreamResult(stream, "application/octet-stream")
             {
-                FileDownloadName = $"{name}.gpx"
+                FileDownloadName = $"{name}.{type}"
             };
         }
     }

@@ -9,6 +9,6 @@ namespace EasyGrid.Common.Models.GPX
         public string Time { get; set; }
 
         [XmlElement("bounds")]
-        public GpxBounds Bounds { get; set; }
+        public GpxBounds? Bounds { get; set; }
     }
 }

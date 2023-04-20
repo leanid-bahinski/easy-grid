@@ -55,47 +55,6 @@ namespace EasyGrid.Core.Services.Implementation
             return points;
         }
 
-        public IEnumerable<Point> FindPathForGpx2(int width, int height)
-        {
-            var points = new List<Point>();
-
-            var currentPoint = new Point(0, 0);
-            var horizontalDirection = Direction.Right;
-            var verticalDirection = Direction.Down;
-            var iteration = 0;
-
-            while (iteration < 3)
-            {
-                points.Add(currentPoint);
-
-                var direction = iteration switch
-                {
-                    0 => horizontalDirection,
-                    1 => verticalDirection,
-                    _ => throw new InvalidOperationException("Unexpected iteration value."),
-                };
-
-                if (TryMovePoint(width, height, direction, ref currentPoint))
-                {
-                    continue;
-                }
-
-                switch (iteration)
-                {
-                    case 0:
-                        horizontalDirection = RevertDirection(horizontalDirection);
-                        break;
-                    case 1:
-                        verticalDirection = RevertDirection(verticalDirection);
-                        break;
-                }
-
-                iteration++;
-            }
-
-            return points;
-        }
-
         private static bool TryMovePoint(int width, int height, Direction direction, ref Point point)
         {
             switch (direction)

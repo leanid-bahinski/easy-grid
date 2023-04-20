@@ -1,11 +1,19 @@
 ﻿using EasyGrid.Common;
 using EasyGrid.Common.Enums;
 using EasyGrid.Common.Models;
+using EasyGrid.Core.Providers;
 
 namespace EasyGrid.Core.Services.Implementation
 {
     public class CalculateGridService : ICalculateGridService
     {
+        private readonly GeneratePointNameProvider _generatePointNameProvider;
+
+        public CalculateGridService()
+        {
+            _generatePointNameProvider = new GeneratePointNameProvider();
+        }
+
         public GeoPoint[,] CreateGrid(double minLat, double minLon, double maxLat, double maxLon, int squareSize)
         {
             if (squareSize < 1)
@@ -24,7 +32,7 @@ namespace EasyGrid.Core.Services.Implementation
             return CalculateGrid(startPoint, squareSize, numberOfPointsByLon, numberOfPointsByLat);
         }
 
-        private static GeoPoint[,] CalculateGrid(GeoPoint startPoint, int squareSize, int numberOfPointsByLon, int numberOfPointsByLat)
+        private GeoPoint[,] CalculateGrid(GeoPoint startPoint, int squareSize, int numberOfPointsByLon, int numberOfPointsByLat)
         {
             var grid = new GeoPoint[numberOfPointsByLon, numberOfPointsByLat];
 
@@ -33,17 +41,20 @@ namespace EasyGrid.Core.Services.Implementation
                 if (j == 0)
                 {
                     grid[0, 0] = startPoint;
+                    grid[0, 0].SetName(_generatePointNameProvider.GeneratePointName(0, 0));
                 }
                 else
                 {
                     var step = CalcStep(grid[0, j - 1], Direction.Down, squareSize);
                     grid[0, j] = CalcNextPoint(grid[0, j - 1], step);
+                    grid[0, j].SetName(_generatePointNameProvider.GeneratePointName(0, j));
                 }
 
                 for (var i = 1; i < numberOfPointsByLon; i++)
                 {
                     var step = CalcStep(grid[i - 1, j], Direction.Right, squareSize);
                     grid[i, j] = CalcNextPoint(grid[i - 1, j], step);
+                    grid[i, j].SetName(_generatePointNameProvider.GeneratePointName(i, j));
                 }
             }
 
@@ -52,9 +63,9 @@ namespace EasyGrid.Core.Services.Implementation
 
         private static GeoPoint CalcStep(GeoPoint startPoint, Direction directory, int distance)
         {
-            var angle = Constants.RadAngle[directory];
-            var stepLat = Constants.CircleAngle * Math.Sin(angle) * distance / Constants.Planet.Lat;
-            var stepLon = Constants.CircleAngle * Math.Cos(angle) * distance / (Constants.Planet.Lon * Math.Cos(startPoint.Lat * Constants.Rad));
+            var angle = MathConstants.RadAngle[directory];
+            var stepLat = MathConstants.CircleAngle * Math.Sin(angle) * distance / MathConstants.Planet.Lat;
+            var stepLon = MathConstants.CircleAngle * Math.Cos(angle) * distance / (MathConstants.Planet.Lon * Math.Cos(startPoint.Lat * MathConstants.Rad));
             return new GeoPoint(stepLat, stepLon);
         }
 

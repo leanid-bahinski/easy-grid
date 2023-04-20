@@ -3,7 +3,7 @@
     "EasyGrid.AF": {
       "commandName": "Project",
       "commandLineArgs": "--port 7205",
-      "launchBrowser": true
+      "launchBrowser": false
     }
   }
 }

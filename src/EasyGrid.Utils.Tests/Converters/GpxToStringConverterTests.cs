@@ -1,6 +1,6 @@
 namespace EasyGrid.Utils.Tests.Converters
 {
-    public class GeoPointsToGpxConverterTests
+    public class GpxToStringConverterTests
     {
         [Test]
         public void Function()
