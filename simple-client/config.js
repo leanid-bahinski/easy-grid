@@ -1,0 +1,1 @@
+var functionUrl = 'https://easygrid.azurewebsites.net/api/create-grid';

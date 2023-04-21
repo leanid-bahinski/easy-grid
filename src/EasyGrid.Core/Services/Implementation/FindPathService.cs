@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace EasyGrid.Core.Services.Implementation
 {
-    public class FindMeshTraversalPathService : IFindMeshTraversalPathService
+    public class FindPathService : IFindPathService
     {
         public IEnumerable<Point> FindPathForGpx(int width, int height)
         {

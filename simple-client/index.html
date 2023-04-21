@@ -2,10 +2,19 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>POST test</title>
+    <title>EasyGrid - Post test</title>
+    <script src="config.js"></script>
+    <script>
+        if (typeof config !== 'undefined') {
+          var script = document.createElement('script');
+          script.src = 'config.dev.js';
+          script.async = true;
+          document.head.appendChild(script);
+        }
+      </script>
 </head>
 <body>
-    <form method="post" action="https://easygrid.azurewebsites.net/api/create-grid"><!--http://localhost:7205/api/create-grid-->
+    <form method="post">
         <table>
             <tr>
                 <td><label for="minLat">Minimum Latitude:</label></td>
@@ -42,19 +51,34 @@
             event.preventDefault();
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var gpxContents = document.getElementById('gpx-content');
-                    gpxContents.value = xhr.responseText;
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var gpxContents = document.getElementById('gpx-content');
+                        gpxContents.value = xhr.responseText;
+                    } else if (xhr.status === 400) {
+                        console.error(xhr);
+                        var errorResponse = JSON.parse(xhr.responseText);
+                        var errorMessage = "Validation error:";
+                        for (var i = 0; i < errorResponse.length; i++) {
+                            errorMessage += "\n- " + errorResponse[i].propertyName + " " + errorResponse[i].errorMessage;
+                        }
+                        alert(errorMessage);
+                    } else {
+                        console.error(xhr);
+                        alert("Unexpected error occurred. Please try again later.");
+                    }
                 }
             }
-            xhr.open('POST', form.action);
+            xhr.open('POST', functionUrl);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            var formData = new FormData(form);
-            var json = {};
-            formData.forEach(function (value, key) {
-                json[key] = value;
+            var requestData = JSON.stringify({
+                minLat: parseFloat(form.minLat.value),
+                minLon: parseFloat(form.minLon.value),
+                maxLat: parseFloat(form.maxLat.value),
+                maxLon: parseFloat(form.maxLon.value),
+                squareSize: parseInt(form.squareSize.value)
             });
-            xhr.send(JSON.stringify(json));
+            xhr.send(requestData);
         });
     </script>
 </body>

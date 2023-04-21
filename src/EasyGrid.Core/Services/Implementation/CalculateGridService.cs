@@ -1,4 +1,4 @@
-﻿using EasyGrid.Common;
+﻿using EasyGrid.Common.Constants;
 using EasyGrid.Common.Enums;
 using EasyGrid.Common.Models;
 using EasyGrid.Core.Providers;

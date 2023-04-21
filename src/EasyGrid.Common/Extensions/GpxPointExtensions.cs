@@ -6,8 +6,7 @@ namespace EasyGrid.Common.Extensions
     {
         public static bool IsEmpty(this GeoPoint[,] grid)
         {
-            return grid.GetLength(0) == 0 || 
-                   grid.GetLength(1) == 0;
+            return grid.GetLength(0) == 0 || grid.GetLength(1) == 0;
         }
     }
 }

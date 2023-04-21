@@ -2,7 +2,7 @@
 
 namespace EasyGrid.Core.Services
 {
-    public interface IFindMeshTraversalPathService
+    public interface IFindPathService
     {
         IEnumerable<Point> FindPathForGpx(int width, int height);
     }

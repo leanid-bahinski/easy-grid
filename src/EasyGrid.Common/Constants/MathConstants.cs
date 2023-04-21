@@ -1,6 +1,6 @@
 ﻿using EasyGrid.Common.Enums;
 
-namespace EasyGrid.Common
+namespace EasyGrid.Common.Constants
 {
     public static class MathConstants
     {
