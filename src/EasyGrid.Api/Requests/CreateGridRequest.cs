@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace EasyGrid.AF.Requests
+namespace EasyGrid.Api.Requests
 {
     public class CreateGridRequest
     {

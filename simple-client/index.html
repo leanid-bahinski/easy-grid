@@ -4,14 +4,6 @@
     <meta charset="utf-8" />
     <title>EasyGrid - Post test</title>
     <script src="config.js"></script>
-    <script>
-        if (typeof config !== 'undefined') {
-          var script = document.createElement('script');
-          script.src = 'config.dev.js';
-          script.async = true;
-          document.head.appendChild(script);
-        }
-      </script>
 </head>
 <body>
     <form method="post">
@@ -49,6 +41,7 @@
         var form = document.querySelector('form');
         form.addEventListener('submit', function (event) {
             event.preventDefault();
+            console.log(functionUrl);
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {

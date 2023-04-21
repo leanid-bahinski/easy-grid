@@ -1,1 +1,0 @@
-var functionUrl = 'http://localhost:7205/api/create-grid';

@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "EasyGrid.AF": {
+    "EasyGrid.Api": {
       "commandName": "Project",
       "commandLineArgs": "--port 7205",
       "launchBrowser": false

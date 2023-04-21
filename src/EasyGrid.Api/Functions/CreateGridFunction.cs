@@ -1,4 +1,4 @@
-using EasyGrid.AF.Requests;
+using EasyGrid.Api.Requests;
 using EasyGrid.Common.Constants;
 using EasyGrid.Core.Services;
 using EasyGrid.Utils.Converters;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentValidation.Results;
 
-namespace EasyGrid.AF.Functions
+namespace EasyGrid.Api.Functions
 {
     public class CreateGridFunction
     {

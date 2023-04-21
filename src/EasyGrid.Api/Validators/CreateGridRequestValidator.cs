@@ -1,7 +1,7 @@
-﻿using EasyGrid.AF.Requests;
+﻿using EasyGrid.Api.Requests;
 using FluentValidation;
 
-namespace EasyGrid.AF.Validators
+namespace EasyGrid.Api.Validators
 {
     public class CreateGridRequestValidator : AbstractValidator<CreateGridRequest>
     {

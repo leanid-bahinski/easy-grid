@@ -1,4 +1,4 @@
-﻿using EasyGrid.AF.Validators;
+﻿using EasyGrid.Api.Validators;
 using EasyGrid.Core.Services;
 using EasyGrid.Core.Services.Implementation;
 using EasyGrid.Utils.Converters;
@@ -7,9 +7,9 @@ using FluentValidation;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: FunctionsStartup(typeof(EasyGrid.AF.Startup))]
+[assembly: FunctionsStartup(typeof(EasyGrid.Api.Startup))]
 
-namespace EasyGrid.AF
+namespace EasyGrid.Api
 {
     public class Startup : FunctionsStartup
     {
